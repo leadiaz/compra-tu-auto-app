@@ -1,13 +1,10 @@
 package ar.edu.unq.pdss22025.controllers;
 
-import ar.edu.unq.pdss22025.models.Rol;
 import ar.edu.unq.pdss22025.models.Usuario;
-import ar.edu.unq.pdss22025.models.dto.CrearRolRequest;
 import ar.edu.unq.pdss22025.models.dto.CrearUsuarioRequest;
 import ar.edu.unq.pdss22025.models.dto.UsuarioResponse;
 import ar.edu.unq.pdss22025.services.RolService;
 import ar.edu.unq.pdss22025.services.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +13,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/usuarios")
-@CrossOrigin(origins = "*")
+@RequestMapping("/usuario")
 public class UsuarioController {
     
     private final UsuarioService usuarioService;
-    
-    private final RolService rolService;
 
-    public UsuarioController(UsuarioService usuarioService, RolService rolService) {
+    public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-        this.rolService = rolService;
     }
 
     @PostMapping
