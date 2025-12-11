@@ -1,0 +1,11 @@
+# Resultados de k6
+*.json
+*.html
+*.csv
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+

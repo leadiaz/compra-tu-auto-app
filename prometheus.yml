@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Métricas del backend Spring Boot
+  - job_name: 'spring-boot-backend'
+    metrics_path: '/api/1/compra-tu-auto/actuator/prometheus'
+    static_configs:
+      - targets: ['app:8080']
+        labels:
+          service: 'compra-tu-auto-backend'
+          environment: 'production'
+
+  # Métricas de Prometheus mismo
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
